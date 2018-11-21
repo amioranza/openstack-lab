@@ -1,5 +1,9 @@
 # Deploy an Openstack lab with ease
 
+## Pre-reqs
+- Vagrant - https://www.vagrantup.com/
+- VirtualBox - https://www.virtualbox.org/
+
 ## Instructions
 
 1. Clone this repo
