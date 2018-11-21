@@ -12,6 +12,7 @@
 4. Inside the VM openstack01 run the following commands to spin up the Openstack with kolla-ansible:
   - `kolla-ansible -i /etc/kolla/inventory/multinode bootstrap-servers`
   - `kolla-ansible -i /etc/kolla/inventory/multinode prechecks`
+  - `kolla-ansible -i /etc/kolla/inventory/multinode pull` - (Optional step, accelerate deploy getting docker images in advance)
   - `kolla-ansible -i /etc/kolla/inventory/multinode deploy`
   - `kolla-ansible -i /etc/kolla/inventory/multinode post-deploy`
 5. Get the admin credentials `cat /etc/kolla/admin-openrc.sh | grep OS_PASS | cut -f2 -d=`
