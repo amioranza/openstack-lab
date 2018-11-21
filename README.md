@@ -13,7 +13,7 @@
 ```
 kolla-ansible -i /etc/kolla/inventory/multinode bootstrap-servers
 kolla-ansible -i /etc/kolla/inventory/multinode prechecks
-kolla-ansible -i /etc/kolla/inventory/multinode pull #Optional step, accelerate deploy getting docker images in advance
+kolla-ansible -i /etc/kolla/inventory/multinode pull                #Optional step, accelerate deploy getting docker images in advance
 kolla-ansible -i /etc/kolla/inventory/multinode deploy
 kolla-ansible -i /etc/kolla/inventory/multinode post-deploy
 ```
