@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# required plugins 
+# vagrant-hostmanager
+# vagrant-disksize
 
 VAGRANTFILE_API_VERSION = "2"
 

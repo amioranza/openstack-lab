@@ -15,10 +15,10 @@ config_strategy: "COPY_ALWAYS"
 kolla_base_distro: "ubuntu"
 
 # Valid options are [ binary, source ]
-kolla_install_type: "binary"
+kolla_install_type: "source"
 
 # Valid option is Docker repository tag
-openstack_release: "pike"
+openstack_release: "queens"
 
 # Location of configuration overrides
 #node_custom_config: "/etc/kolla/config"
