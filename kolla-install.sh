@@ -25,8 +25,8 @@ sudo pip install python-openstackclient python-glanceclient python-neutronclient
 echo "Copying files to /etc/kolla"
 sudo cp -r /usr/local/share/kolla-ansible/etc_examples/kolla /etc/
 echo "Creating the inventory directory"
-sudo mkdir -p /etc/kolla/inventory
-sudo cp /usr/local/share/kolla-ansible/ansible/inventory/* /etc/kolla/inventory/
+sudo mkdir -p /etc/kolla/config/inventory
+sudo cp /usr/local/share/kolla-ansible/ansible/inventory/* /etc/kolla/config/inventory/
 #echo "Generating the ssh keys"
 #sudo ssh-keygen -q -f ~/.ssh/id_rsa -N ''
 #runuser -l  vagrant -c "ssh-keygen -q -f ~/.ssh/id_rsa -N ''"

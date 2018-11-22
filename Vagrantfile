@@ -20,6 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       cfg.vm.provider :virtualbox do |vb, override|
         config.vm.box = "ubuntu/xenial64"
         config.vm.synced_folder ".", "/vagrant"
+        config.disksize.size = '30GB'
         override.vm.network :private_network, ip: "#{info[:ip1]}"
         override.vm.network :private_network, ip: "#{info[:ip2]}"
         override.vm.hostname = hostname
