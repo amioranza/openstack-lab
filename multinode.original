@@ -1,21 +1,36 @@
+# These initial groups are the only groups required to be modified. The
+# additional groups are for more control of the environment.
 [control]
-192.168.157.11 ansible_user=vagrant ansible_ssh_private_key_file=/vagrant/.vagrant/machines/openstack01/virtualbox/private_key ansible_become=true
+# These hostname must be resolvable from your deployment host
+control01
+control02
+control03
 
-[network:children]
-control
+# The above can also be specified as follows:
+#control[01:03]     ansible_user=kolla
+
+# The network nodes are where your l3-agent and loadbalancers will run
+# This can be the same as a host in the control group
+[network]
+network01
+network02
 
 [compute]
-192.168.157.12 ansible_user=vagrant ansible_ssh_private_key_file=/vagrant/.vagrant/machines/openstack02/virtualbox/private_key ansible_become=true
-192.168.157.13 ansible_user=vagrant ansible_ssh_private_key_file=/vagrant/.vagrant/machines/openstack03/virtualbox/private_key ansible_become=true
+compute01
 
-[monitoring:children]
-control
+[monitoring]
+monitoring01
 
-[storage:children]
-compute
+# When compute nodes and control nodes use different interfaces,
+# you need to comment out "api_interface" and other interfaces from the globals.yml
+# and specify like below:
+#compute01 neutron_external_interface=eth0 api_interface=em1 storage_interface=em1 tunnel_interface=em1
+
+[storage]
+storage01
 
 [deployment]
-localhost       ansible_connection=local become=true
+localhost       ansible_connection=local
 
 [baremetal:children]
 control

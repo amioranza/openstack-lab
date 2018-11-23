@@ -8,7 +8,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 cluster = {
-  "openstack01" => { :ip1 => "192.168.157.11", :ip2 => "192.168.197.11", :cpus => 2, :mem => 4096, :script => "kolla-install.sh"},
+  "openstack01" => { :ip1 => "192.168.157.11", :ip2 => "192.168.197.11", :cpus => 2, :mem => 4096, :script => "deploy.sh"},
   "openstack02" => { :ip1 => "192.168.157.12", :ip2 => "192.168.197.12", :cpus => 2, :mem => 4096, :script => "deploy.sh"},
   "openstack03" => { :ip1 => "192.168.157.13", :ip2 => "192.168.197.13", :cpus => 2, :mem => 4096, :script => "deploy.sh"}
 }
