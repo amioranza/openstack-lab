@@ -1,7 +1,7 @@
 # Deploy an Openstack lab with ease
 
 ## Pre-reqs
-- A modern computer with more than 10gb RAM, the VM used to run Openstack AIO uses 10gb RAM, you can change this setting on Vagrantfile, but performance issues can happen.
+- A modern computer (I've tried on Core i7 7th generation) with more than 10gb RAM, the VM used to run Openstack AIO uses 10gb RAM, you can change this setting on Vagrantfile, but performance issues can happen.
 - Vagrant - https://www.vagrantup.com/
 - VirtualBox - https://www.virtualbox.org/
 
