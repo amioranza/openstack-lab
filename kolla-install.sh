@@ -39,6 +39,7 @@ sudo mkdir -p /etc/kolla
 sudo cp -r kolla-ansible/etc/kolla/* /etc/kolla
 sudo mkdir -p /etc/kolla/config/inventory
 sudo cp /vagrant/multinode /etc/kolla/config/inventory/
+sudo cp /vagrant/all-in-one /etc/kolla/config/inventory/
 sudo cp /vagrant/globals.yml /etc/kolla/
 echo "#####################################################"
 echo "#                                                   #"
@@ -50,8 +51,8 @@ echo "#####################################################"
 cd /opt/kolla-ansible/tools
 sudo chown -R vagrant:vagrant /home/vagrant/.ansible
 sudo ./generate_passwords.py
-sudo ./kolla-ansible -i /etc/kolla/config/inventory/multinode bootstrap-servers
-sudo ./kolla-ansible -i /etc/kolla/config/inventory/multinode prechecks
+sudo ./kolla-ansible -i /etc/kolla/config/inventory/all-in-one bootstrap-servers
+sudo ./kolla-ansible -i /etc/kolla/config/inventory/all-in-one prechecks
 echo "#####################################################"
 echo "#                                                   #"
 echo "#                                                   #"
@@ -59,5 +60,5 @@ echo "#           Deploying openstack servers             #"
 echo "#                                                   #"
 echo "#                                                   #"
 echo "#####################################################"
-sudo ./kolla-ansible -i /etc/kolla/config/inventory/multinode deploy
-sudo ./kolla-ansible -i /etc/kolla/config/inventory/multinode post-deploy
+sudo ./kolla-ansible -i /etc/kolla/config/inventory/all-in-one deploy
+sudo ./kolla-ansible -i /etc/kolla/config/inventory/all-in-one post-deploy

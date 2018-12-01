@@ -8,9 +8,9 @@
 VAGRANTFILE_API_VERSION = "2"
 
 cluster = {
-  "openstack01" => { :ip1 => "192.168.157.11", :ip2 => "192.168.197.11", :cpus => 2, :mem => 4096, :script => "deploy.sh"},
-  "openstack02" => { :ip1 => "192.168.157.12", :ip2 => "192.168.197.12", :cpus => 2, :mem => 4096, :script => "deploy.sh"},
-  "openstack03" => { :ip1 => "192.168.157.13", :ip2 => "192.168.197.13", :cpus => 2, :mem => 4096, :script => "deploy.sh"}
+  "openstack01" => { :ip1 => "192.168.157.11", :ip2 => "192.168.197.11", :cpus => 2, :mem => 10240, :script => "deploy.sh"},
+  #"openstack02" => { :ip1 => "192.168.157.12", :ip2 => "192.168.197.12", :cpus => 2, :mem => 4096, :script => "deploy.sh"},
+  #"openstack03" => { :ip1 => "192.168.157.13", :ip2 => "192.168.197.13", :cpus => 2, :mem => 4096, :script => "deploy.sh"}
 }
 
 
@@ -23,9 +23,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       cfg.vm.provider :virtualbox do |vb, override|
         config.vm.box = "ubuntu/xenial64"
         config.vm.synced_folder ".", "/vagrant"
-        config.disksize.size = '30GB'
+        config.disksize.size = '50GB'
         override.vm.network :private_network, ip: "#{info[:ip1]}"
-        override.vm.network :private_network, ip: "#{info[:ip2]}"
+        override.vm.network :private_network, ip: "#{info[:ip2]}", virtualbox__intnet: "OPENSTACK"
         override.vm.hostname = hostname
         vb.name = hostname
         vb.customize ["modifyvm", :id, "--memory", info[:mem], "--cpus", info[:cpus], "--hwvirtex", "on"]
