@@ -1,0 +1,15 @@
+# GENERAL
+node_count = 1
+default_domain = "ngintad.local"
+hostname_prefix = "br-int-registry-"
+# OPESNTACK
+openstack_image_name = "Ubuntu 16.04"
+openstack_flavor_name = "m1.medium"
+openstack_kp = "kp-paas"
+# CHEF Setup
+chef_user = "chef_user"
+chef_env = "alpha_ngint"
+chef_server_url = "https://chef.viveiro.local/organizations/neogrid"
+chef_ssh_user = "ubuntu"
+chef_run_list = ["recipe[ng-rancher2]"]
+chef_ssh_keyfile = "/d/Projects/priv_keys/kp-paas.key"
