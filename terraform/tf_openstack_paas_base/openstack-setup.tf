@@ -3,10 +3,14 @@ provider "openstack" {
   insecure = true
 }
 
+data "openstack_networking_network_v2" "public" {
+  name = "public1"
+}
+
 resource "openstack_networking_router_v2" "services-rt" {
   name                = "services-router"
   admin_state_up      = true
-  external_network_id = "b65fcbea-ca54-4062-81ba-c9806cca3df1"
+  external_network_id = "${data.openstack_networking_network_v2.public.id}"
 }
 
 # SERVICES NETWORK
